@@ -21,13 +21,13 @@ public class Account {
             connection = getConnection();
             logger.info("Connection successful with DB");
             createTable(SQL_CREATE_TABLE);
-            setTableValues(2, 761217908, "Diego Diaz", 2345.00, SQL_INSERT_DATA);
+            //setTableValues(2, 761217908, "Diego Diaz", 2345.00, SQL_INSERT_DATA);
             getTableValues(SQL_SELECT_DATA);
-            transactionUpdateBalance(SQL_UPDATE_DATA, 2, 989222.02);
+            transactionUpdateBalance(SQL_UPDATE_DATA, 2, 1000.99);
             getTableValues(SQL_SELECT_DATA);
         } catch (Exception e) {
             logger.error("Connection failure with DB");
-            throw new Exception(e);
+            e.printStackTrace();
         } finally {
             closeConnection();
         }
@@ -45,7 +45,7 @@ public class Account {
                 logger.info("Connection Closed Successful");
             } catch (Exception e) {
                 logger.error("Error closing connection");
-                throw new Exception(e);
+                e.printStackTrace();
             }
         }
     }
@@ -81,14 +81,27 @@ public class Account {
         }
     }
 
-    public static void transactionUpdateBalance(String sqlQuery, Integer id, Double balaance) throws SQLException {
+    public static void transactionUpdateBalance(String sqlQuery, Integer id, Double balance) throws SQLException {
         connection.setAutoCommit(false);
         try (PreparedStatement preparedStatementUpdate = connection.prepareStatement(sqlQuery)) {
-            preparedStatementUpdate.setDouble(1,balaance);
+            preparedStatementUpdate.setDouble(1,balance);
             preparedStatementUpdate.setInt(2, id);
             preparedStatementUpdate.execute();
+            int exception = 4/0;
             connection.commit();
+        } catch (Exception ex) {
+            rollbackConnection();
+            ex.printStackTrace();
         }
+        connection.setAutoCommit(true);
         logger.info("Updated balance");
+    }
+
+    public static void rollbackConnection() throws SQLException {
+        try {
+            connection.rollback();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
     }
 }

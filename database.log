@@ -59,3 +59,53 @@
 [2024-11-22 19:51:35] [ INFO ] [Account:92] Updated balance
 [2024-11-22 19:51:35] [ INFO ] [Account:80] Data collected
 [2024-11-22 19:51:35] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:56:21] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:56:21] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:56:21] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 19:56:21] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:56:31] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:56:31] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:56:31] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:56:31] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 19:56:31] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:57:02] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:57:02] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:57:02] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:57:02] [ INFO ] [Account:93] Updated balance
+[2024-11-22 19:57:02] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:57:02] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:57:26] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:57:26] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:57:26] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:57:26] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 19:57:26] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:00:15] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 20:00:15] [ INFO ] [Account:56] Table Created
+[2024-11-22 20:00:15] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:00:15] [ INFO ] [Account:100] Updated balance
+[2024-11-22 20:00:15] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:00:15] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:00:34] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 20:00:34] [ INFO ] [Account:56] Table Created
+[2024-11-22 20:00:34] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:00:34] [ INFO ] [Account:99] Updated balance
+[2024-11-22 20:00:34] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:00:34] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:03:34] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 20:03:34] [ INFO ] [Account:56] Table Created
+[2024-11-22 20:03:34] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:34] [ INFO ] [Account:96] Updated balance
+[2024-11-22 20:03:34] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:34] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:03:41] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 20:03:41] [ INFO ] [Account:56] Table Created
+[2024-11-22 20:03:41] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:41] [ INFO ] [Account:96] Updated balance
+[2024-11-22 20:03:41] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:41] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:03:55] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 20:03:55] [ INFO ] [Account:56] Table Created
+[2024-11-22 20:03:55] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:55] [ INFO ] [Account:97] Updated balance
+[2024-11-22 20:03:55] [ INFO ] [Account:80] Data collected
+[2024-11-22 20:03:55] [ INFO ] [Account:45] Connection Closed Successful
