@@ -1,3 +1,51 @@
 [2024-11-22 15:23:35] [ INFO ] [Account:15] Connection successful with DB
 [2024-11-22 18:05:56] [ INFO ] [Account:17] Connection successful with DB
 [2024-11-22 18:05:56] [ INFO ] [Account:35] Connection Closed Successful
+[2024-11-22 18:33:06] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 18:33:07] [ ERROR] [Account:30] Connection failure with DB
+[2024-11-22 18:33:07] [ INFO ] [Account:46] Connection Closed Successful
+[2024-11-22 18:33:29] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 18:33:29] [ ERROR] [Account:30] Connection failure with DB
+[2024-11-22 18:33:29] [ INFO ] [Account:46] Connection Closed Successful
+[2024-11-22 18:34:50] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 18:34:51] [ ERROR] [Account:30] Connection failure with DB
+[2024-11-22 18:34:51] [ INFO ] [Account:46] Connection Closed Successful
+[2024-11-22 18:36:40] [ INFO ] [Account:26] Connection successful with DB
+[2024-11-22 18:36:40] [ ERROR] [Account:32] Connection failure with DB
+[2024-11-22 18:36:40] [ INFO ] [Account:48] Connection Closed Successful
+[2024-11-22 18:37:04] [ INFO ] [Account:26] Connection successful with DB
+[2024-11-22 18:37:04] [ ERROR] [Account:32] Connection failure with DB
+[2024-11-22 18:37:04] [ INFO ] [Account:48] Connection Closed Successful
+[2024-11-22 18:37:28] [ INFO ] [Account:26] Connection successful with DB
+[2024-11-22 18:37:28] [ ERROR] [Account:32] Connection failure with DB
+[2024-11-22 18:37:28] [ INFO ] [Account:48] Connection Closed Successful
+[2024-11-22 18:38:52] [ INFO ] [Account:21] Connection successful with DB
+[2024-11-22 18:38:52] [ INFO ] [Account:25] Table Created
+[2024-11-22 18:38:52] [ INFO ] [Account:43] Connection Closed Successful
+[2024-11-22 18:49:30] [ INFO ] [Account:21] Connection successful with DB
+[2024-11-22 18:49:30] [ INFO ] [Account:52] Table Created
+[2024-11-22 18:49:30] [ INFO ] [Account:61] Info inserted
+[2024-11-22 18:49:30] [ INFO ] [Account:41] Connection Closed Successful
+[2024-11-22 18:51:03] [ INFO ] [Account:21] Connection successful with DB
+[2024-11-22 18:51:03] [ INFO ] [Account:52] Table Created
+[2024-11-22 18:51:03] [ INFO ] [Account:61] Info inserted
+[2024-11-22 18:51:03] [ INFO ] [Account:41] Connection Closed Successful
+[2024-11-22 18:53:55] [ INFO ] [Account:21] Connection successful with DB
+[2024-11-22 18:53:55] [ INFO ] [Account:52] Table Created
+[2024-11-22 18:53:55] [ INFO ] [Account:62] Info inserted
+[2024-11-22 18:53:55] [ INFO ] [Account:41] Connection Closed Successful
+[2024-11-22 18:54:32] [ INFO ] [Account:21] Connection successful with DB
+[2024-11-22 18:54:32] [ INFO ] [Account:52] Table Created
+[2024-11-22 18:54:32] [ INFO ] [Account:63] Info inserted
+[2024-11-22 18:54:32] [ INFO ] [Account:41] Connection Closed Successful
+[2024-11-22 18:58:34] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 18:58:34] [ INFO ] [Account:56] Table Created
+[2024-11-22 18:58:34] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 18:58:34] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 18:58:51] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 18:58:51] [ INFO ] [Account:56] Table Created
+[2024-11-22 18:58:51] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:00:32] [ INFO ] [Account:24] Connection successful with DB
+[2024-11-22 19:00:32] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:00:32] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 19:00:32] [ INFO ] [Account:45] Connection Closed Successful
