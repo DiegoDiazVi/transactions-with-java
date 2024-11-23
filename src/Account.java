@@ -1,76 +1,79 @@
 import java.sql.*;
-
 import org.apache.log4j.Logger;
 
 public class Account {
     private static final Logger logger = Logger.getLogger(Account.class);
+
+    /* DB CONFIGURATION */
     private static final String URL = "jdbc:mysql://localhost:3306/account";
     private static final String USER = "root";
     private static final String PASS = "rootroot";
-    private static Connection connection = null;
-
-    private final static String SQL_CREATE_TABLE =
-            "CREATE TABLE IF NOT EXISTS account ( id INT AUTO_INCREMENT PRIMARY KEY, account_number VARCHAR(20) NOT NULL, name VARCHAR(50) NOT NULL, balance DECIMAL(12,2) NOT NULL );";
-
-    private final static String SQL_INSERT_DATA = "INSERT INTO account VALUES (?,?,?,?)";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    /* SQL QUERIES */
+    private static final String SQL_CREATE_TABLE = """
+        CREATE TABLE IF NOT EXISTS account (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            account_number VARCHAR(20) NOT NULL,
+            name VARCHAR(50) NOT NULL,
+            balance DECIMAL(12,2) NOT NULL
+        );""";
+    private final static String SQL_INSERT_DATA = "INSERT INTO account (id, account_number, name, balance) VALUES (?,?,?,?)";
     private final static String SQL_SELECT_DATA = "SELECT * FROM account";
     private final static String SQL_UPDATE_DATA = "UPDATE account SET balance = ? WHERE id = ?";
 
-    public static void main(String[] args) throws Exception {
-        try {
-            connection = getConnection();
-            logger.info("Connection successful with DB");
-            createTable(SQL_CREATE_TABLE);
-            //setTableValues(2, 761217908, "Diego Diaz", 2345.00, SQL_INSERT_DATA);
-            getTableValues(SQL_SELECT_DATA);
-            transactionUpdateBalance(SQL_UPDATE_DATA, 2, 1000.99);
-            getTableValues(SQL_SELECT_DATA);
-        } catch (Exception e) {
-            logger.error("Connection failure with DB");
-            e.printStackTrace();
-        } finally {
-            closeConnection();
-        }
+    private Connection connection;
+
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+        logger.info("DB Connected successfully");
     }
 
-    public static Connection getConnection() throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+    public Connection getConnection() throws Exception {
+        Class.forName(DRIVER);
         return DriverManager.getConnection(URL, USER, PASS);
     }
 
-    public static void closeConnection() throws Exception {
-        if (connection != null && !connection.isClosed()) {
+    public void closeConnection() throws Exception {
+        if (this.connection != null) {
             try {
-                connection.close();
-                logger.info("Connection Closed Successful");
+                this.connection.close();
+                logger.info("DB Connection Closed Successfully");
             } catch (Exception e) {
-                logger.error("Error closing connection");
-                e.printStackTrace();
+                logger.error("Error closing DB connection");
+                throw new DatabaseException("Error closing DB connection", e);
             }
         }
     }
 
-    public static void createTable(String sqlQuery) throws SQLException {
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(sqlQuery);
-            logger.info("Table Created");
+    public void createTable() throws SQLException {
+        try (Statement statement = this.connection.createStatement()) {
+            statement.execute(SQL_CREATE_TABLE);
+            logger.info("Table Created Successfully");
+        } catch (SQLException e) {
+            logger.error("Error creating table");
+            throw new DatabaseException("Error creating table", e);
         }
     }
 
-    public static void setTableValues(Integer id, Integer accountNumber, String name, Double balance, String sqlQuery) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+    public void setTableValues(Integer id, Integer accountNumber, String name, Double balance) throws SQLException {
+        try (PreparedStatement preparedStatement = this.connection.prepareStatement(SQL_INSERT_DATA)) {
             preparedStatement.setInt(1, id);
             preparedStatement.setInt(2, accountNumber);
             preparedStatement.setString(3, name);
             preparedStatement.setDouble(4, balance);
             preparedStatement.execute();
-            logger.info("Info inserted");
+            logger.info("Info inserted successfully");
+        } catch (SQLException e) {
+            logger.error("Error inserting data");
+            throw new DatabaseException("Error inserting data", e);
         }
     }
 
-    public static void getTableValues(String sqlQuery) throws SQLException {
-        try (Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(sqlQuery);
+    public void getTableValues() throws SQLException {
+        try (Statement statement = this.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL_SELECT_DATA)) {
+
             while (resultSet.next()) {
                 System.out.println("ID: " + resultSet.getInt("id"));
                 System.out.println("Account Number: " + resultSet.getInt("account_number"));
@@ -78,30 +81,47 @@ public class Account {
                 System.out.println("Balance: " + resultSet.getDouble("balance"));
             }
             logger.info("Data collected");
+        } catch (SQLException e) {
+            logger.error("Error retrieving data");
+            throw new DatabaseException("Error retrieving data", e);
         }
     }
 
-    public static void transactionUpdateBalance(String sqlQuery, Integer id, Double balance) throws SQLException {
+    public void transactionUpdateBalance(Integer id, Double balance) throws SQLException {
         connection.setAutoCommit(false);
-        try (PreparedStatement preparedStatementUpdate = connection.prepareStatement(sqlQuery)) {
+        try (PreparedStatement preparedStatementUpdate = this.connection.prepareStatement(SQL_UPDATE_DATA)) {
             preparedStatementUpdate.setDouble(1,balance);
             preparedStatementUpdate.setInt(2, id);
-            preparedStatementUpdate.execute();
-            int exception = 4/0;
-            connection.commit();
+
+            int rowsAffected = preparedStatementUpdate.executeUpdate();
+            if ( rowsAffected == 0) {
+                throw new DatabaseException("No account found with ID: " + id);
+            }
+            // int exception = 4/0;
+            this.connection.commit();
+            logger.info("Balance updated successfully for account");
         } catch (Exception ex) {
             rollbackConnection();
-            ex.printStackTrace();
+            logger.error("Error updating balance");
+            throw new DatabaseException("Error updating balance", ex);
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                logger.error("Error resetting auto-commit");
+            }
         }
-        connection.setAutoCommit(true);
-        logger.info("Updated balance");
     }
 
-    public static void rollbackConnection() throws SQLException {
+    private void rollbackConnection() throws SQLException {
         try {
-            connection.rollback();
+            if (this.connection != null) {
+                this.connection.rollback();
+                logger.info("Transaction rolled back successfully");
+            }
         } catch (SQLException e) {
-            throw new SQLException(e);
+            logger.error("Error during rollback");
+            throw new DatabaseException("Error during rollback", e);
         }
     }
 }

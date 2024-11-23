@@ -109,3 +109,16 @@
 [2024-11-22 20:03:55] [ INFO ] [Account:97] Updated balance
 [2024-11-22 20:03:55] [ INFO ] [Account:80] Data collected
 [2024-11-22 20:03:55] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 20:22:17] [ INFO ] [Account:46] Table Created
+[2024-11-22 20:22:17] [ INFO ] [Account:57] Info inserted
+[2024-11-22 20:22:17] [ INFO ] [Account:70] Data collected
+[2024-11-22 20:22:17] [ INFO ] [Account:87] Updated balance
+[2024-11-22 20:22:17] [ INFO ] [Account:70] Data collected
+[2024-11-22 20:22:17] [ INFO ] [Account:35] Connection Closed Successful
+[2024-11-22 20:46:50] [ INFO ] [Account:29] DB Connected successfully
+[2024-11-22 20:46:50] [ INFO ] [Account:52] Table Created Successfully
+[2024-11-22 20:46:50] [ INFO ] [Account:66] Info inserted successfully
+[2024-11-22 20:46:50] [ INFO ] [Account:83] Data collected
+[2024-11-22 20:46:50] [ INFO ] [Account:102] Balance updated successfully for account
+[2024-11-22 20:46:50] [ INFO ] [Account:83] Data collected
+[2024-11-22 20:46:50] [ INFO ] [Account:41] DB Connection Closed Successfully
