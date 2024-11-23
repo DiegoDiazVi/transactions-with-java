@@ -49,3 +49,13 @@
 [2024-11-22 19:00:32] [ INFO ] [Account:56] Table Created
 [2024-11-22 19:00:32] [ ERROR] [Account:29] Connection failure with DB
 [2024-11-22 19:00:32] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:51:28] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:51:28] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:51:28] [ ERROR] [Account:29] Connection failure with DB
+[2024-11-22 19:51:28] [ INFO ] [Account:45] Connection Closed Successful
+[2024-11-22 19:51:35] [ INFO ] [Account:22] Connection successful with DB
+[2024-11-22 19:51:35] [ INFO ] [Account:56] Table Created
+[2024-11-22 19:51:35] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:51:35] [ INFO ] [Account:92] Updated balance
+[2024-11-22 19:51:35] [ INFO ] [Account:80] Data collected
+[2024-11-22 19:51:35] [ INFO ] [Account:45] Connection Closed Successful

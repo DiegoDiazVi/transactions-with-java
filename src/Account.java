@@ -12,11 +12,9 @@ public class Account {
     private final static String SQL_CREATE_TABLE =
             "CREATE TABLE IF NOT EXISTS account ( id INT AUTO_INCREMENT PRIMARY KEY, account_number VARCHAR(20) NOT NULL, name VARCHAR(50) NOT NULL, balance DECIMAL(12,2) NOT NULL );";
 
-    private  final static String SQL_INSERT_DATA =
-            "INSERT INTO account VALUES (?,?,?,?)";
-
-    private final static String SQL_SELECT_DATA =
-            "SELECT * FROM account";
+    private final static String SQL_INSERT_DATA = "INSERT INTO account VALUES (?,?,?,?)";
+    private final static String SQL_SELECT_DATA = "SELECT * FROM account";
+    private final static String SQL_UPDATE_DATA = "UPDATE account SET balance = ? WHERE id = ?";
 
     public static void main(String[] args) throws Exception {
         try {
@@ -24,6 +22,8 @@ public class Account {
             logger.info("Connection successful with DB");
             createTable(SQL_CREATE_TABLE);
             setTableValues(2, 761217908, "Diego Diaz", 2345.00, SQL_INSERT_DATA);
+            getTableValues(SQL_SELECT_DATA);
+            transactionUpdateBalance(SQL_UPDATE_DATA, 2, 989222.02);
             getTableValues(SQL_SELECT_DATA);
         } catch (Exception e) {
             logger.error("Connection failure with DB");
@@ -79,5 +79,16 @@ public class Account {
             }
             logger.info("Data collected");
         }
+    }
+
+    public static void transactionUpdateBalance(String sqlQuery, Integer id, Double balaance) throws SQLException {
+        connection.setAutoCommit(false);
+        try (PreparedStatement preparedStatementUpdate = connection.prepareStatement(sqlQuery)) {
+            preparedStatementUpdate.setDouble(1,balaance);
+            preparedStatementUpdate.setInt(2, id);
+            preparedStatementUpdate.execute();
+            connection.commit();
+        }
+        logger.info("Updated balance");
     }
 }
